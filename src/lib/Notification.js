@@ -6,7 +6,6 @@ import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Slide from 'material-ui/transitions/Slide';
 import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
 import CloseIcon from 'material-ui-icons/Close';
 import ExpandMore from 'material-ui-icons/ExpandMore';
 import moment from 'moment';
@@ -18,6 +17,9 @@ const styles = theme => ({
     margin: theme.spacing.unit * 3,
     zIndex: theme.zIndex.snackbar,
     overflow: 'hidden'
+  },
+  boxShadow: {
+    boxShadow: '0px 1px 1px 0px rgba(0, 0, 0, 0.2),0px 2px 3px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12)'
   },
   card: {},
   cardHeader: {
@@ -42,7 +44,8 @@ const styles = theme => ({
     margin: 0,
     padding: 0,
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    background: '#eee'
   },
   actionDivider: {
     margin: `${theme.spacing.unit}px ${theme.spacing.unit}px 0px ${
@@ -159,7 +162,7 @@ class Notification extends React.Component {
     } = this.props;
 
     return (
-      <Slide direction="up" in={open}>
+      <Slide className={classes.boxShadow} direction="up" in={open}>
         <Card
           className={classNames(classes.root, classes.card)}
           raised={raised}
@@ -249,7 +252,6 @@ class Notification extends React.Component {
           )}
           {action && (
             <div>
-              <Divider className={classes.actionDivider} />
               <CardActions className={classes.cardActions}>
                 {action}
               </CardActions>
