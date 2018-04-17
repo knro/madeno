@@ -23,3 +23,9 @@ config
 .travis.yml
 CHANGELOG.md
 README.md
+
+/demo
+/docs
+.prettierrc
+.eslintrc.json
+/build/index.js.map
