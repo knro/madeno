@@ -19,8 +19,8 @@ export const store = configureStore();
 
 const styles = theme => ({
   root: {
-    bottom: 20,
-    right: 25,
+    bottom: 32,
+    right: 32,
     position: 'fixed',
     zIndex: theme.zIndex.snackbar,
     minWidth: 325
