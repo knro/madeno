@@ -45,7 +45,8 @@ const styles = theme => ({
     padding: 0,
     display: 'flex',
     justifyContent: 'flex-start',
-    background: '#eee'
+    background: '#eee',
+    fontWeight: '600'
   },
   actionDivider: {
     margin: `${theme.spacing.unit}px ${theme.spacing.unit}px 0px ${
