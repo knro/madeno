@@ -7,7 +7,7 @@ Inspired by [puranjayjain/react-materialui-notifications](https://github.com/pur
 ### Getting Started
 
 ```
-npm install -S hendratommy/mui-notifications
+npm install studio384/mui-notifications
 ```
 
 See it in action:
