@@ -19,7 +19,7 @@ const styles = theme => ({
     overflow: 'hidden'
   },
   boxShadow: {
-    boxShadow: '0px 1px 1px 0px rgba(0, 0, 0, 0.2),0px 2px 3px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12)'
+    boxShadow: '0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23)'
   },
   card: {},
   cardHeader: {
