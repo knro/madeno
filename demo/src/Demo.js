@@ -21,7 +21,7 @@ import {
   NotificationProvider,
   showNotification,
   removeNotification
-} from 'mui-notifications';
+} from 'madeno';
 
 import Github from './icons/Github';
 import AvatarImg from './images/grumpy.jpg';
@@ -129,14 +129,13 @@ class Demo extends Component {
       action: (
         <div>
           <Button
-            dense
             className={this.props.classes.button}
             color="secondary"
             onClick={() => removeNotification(id)}
           >
             Dismiss <Close className={this.props.classes.rightIcon} />
           </Button>
-          <Button dense className={this.props.classes.button} color="primary">
+          <Button className={this.props.classes.button} color="primary">
             Answer <Call className={this.props.classes.rightIcon} />
           </Button>
         </div>
@@ -154,19 +153,17 @@ class Demo extends Component {
       action: (
         <div>
           <Button
-            dense
             className={this.props.classes.button}
             color="secondary"
             onClick={() => removeNotification(id)}
           >
             Dismiss <Close className={this.props.classes.rightIcon} />
           </Button>
-          <Button dense className={this.props.classes.button} color="primary">
+          <Button className={this.props.classes.button} color="primary">
             Answer <Call className={this.props.classes.rightIcon} />
           </Button>
         </div>
       ),
-      disableTimestamp: true,
       priority: true
     }));
   };
@@ -225,10 +222,10 @@ class Demo extends Component {
                 }
                 action={
                   <div>
-                    <Button dense className={classes.button} color="secondary">
+                    <Button className={classes.button} color="secondary">
                       Dismiss <Close className={classes.rightIcon} />
                     </Button>
-                    <Button dense className={classes.button} color="primary">
+                    <Button className={classes.button} color="primary">
                       Answer <Call className={classes.rightIcon} />
                     </Button>
                   </div>
@@ -237,7 +234,6 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                disableTimestamp
               />
               <Notification
                 title="Title"
@@ -278,10 +274,10 @@ class Demo extends Component {
                 }
                 action={
                   <div>
-                    <Button dense className={classes.button} color="secondary">
+                    <Button className={classes.button} color="secondary">
                       Dismiss <Close className={classes.rightIcon} />
                     </Button>
-                    <Button dense className={classes.button} color="primary">
+                    <Button className={classes.button} color="primary">
                       Answer <Call className={classes.rightIcon} />
                     </Button>
                   </div>
@@ -290,7 +286,6 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                disableTimestamp
               />
               <Notification
                 title="Title"
@@ -338,14 +333,12 @@ class Demo extends Component {
                     <Divider />
                     <div>
                       <Button
-                        dense
                         className={classes.expandedButton}
                         color="secondary"
                       >
                         Dismiss <Close className={classes.rightIcon} />
                       </Button>
                       <Button
-                        dense
                         className={classes.expandedButton}
                         color="primary"
                       >
@@ -354,7 +347,6 @@ class Demo extends Component {
                     </div>
                   </div>
                 }
-                disableTimestamp
               />
               <Notification
                 title="Title"
@@ -382,7 +374,7 @@ class Demo extends Component {
                 }
                 action={
                   <div>
-                    <Button dense className={classes.button} color="secondary">
+                    <Button className={classes.button} color="secondary">
                       Dismiss <Close className={classes.rightIcon} />
                     </Button>
                   </div>
@@ -391,7 +383,6 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                disableTimestamp
                 hideCloseButton
                 classes={{ card: classes.infoCard }}
               />
@@ -405,7 +396,7 @@ class Demo extends Component {
                 }
                 action={
                   <div>
-                    <Button dense className={classes.button} color="secondary">
+                    <Button className={classes.button} color="secondary">
                       Dismiss <Close className={classes.rightIcon} />
                     </Button>
                   </div>
@@ -414,7 +405,6 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                disableTimestamp
                 hideCloseButton
                 classes={{ card: classes.warningCard }}
               />
@@ -428,7 +418,7 @@ class Demo extends Component {
                 }
                 action={
                   <div>
-                    <Button dense className={classes.button} color="secondary">
+                    <Button className={classes.button} color="secondary">
                       Dismiss <Close className={classes.rightIcon} />
                     </Button>
                   </div>
@@ -437,7 +427,6 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                disableTimestamp
                 hideCloseButton
                 classes={{ card: classes.errorCard }}
                 expandContent={
@@ -449,14 +438,13 @@ class Demo extends Component {
         </Paper>
         <Divider className={classes.divider} />
         <div className={classes.buttonContainer}>
-          <Button raised onClick={this.showBasicNotification}>
+          <Button onClick={this.showBasicNotification}>
             Show Basic Notification
           </Button>
-          <Button raised onClick={this.showActionNotification}>
+          <Button onClick={this.showActionNotification}>
             Show Action Notification
           </Button>
           <Button
-            raised
             color="primary"
             onClick={this.showPriorityNotification}
           >

@@ -1,5 +1,5 @@
 {
-  "name": "mui-notifications-demo",
+  "name": "mademo",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -14,7 +14,7 @@
     "material-ui": "^1.0.0-beta.30",
     "material-ui-icons": "^1.0.0-beta.17",
     "moment": "^2.20.1",
-    "mui-notifications": "github:hendratommy/mui-notifications",
+    "madeno": "0.3.0-alpha.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0",
