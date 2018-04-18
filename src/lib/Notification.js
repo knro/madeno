@@ -23,13 +23,13 @@ const styles = theme => ({
   },
   card: {},
   cardHeader: {
-    paddingLeft: theme.spacing.unit * 2,
-    paddingTop: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2
+    padding: theme.spacing.unit * 2
   },
   cardContent: {
-    padding: theme.spacing.unit
+    paddingLeft: theme.spacing.unit * 2,
+    paddingTop: 0,
+    paddingRight: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2 + 'px !important'
   },
   avatar: {
     flex: '0 0 auto',
@@ -41,7 +41,7 @@ const styles = theme => ({
     height: 24
   },
   cardActions: {
-    padding: '8px 4px',
+    padding: 0,
     margin: 0,
     display: 'flex',
     justifyContent: 'flex-start',
@@ -54,15 +54,26 @@ const styles = theme => ({
     }px`,
     padding: 0
   },
-  rightHeaderSection: {
+  notificationAppTitle: {
     display: 'flex',
     justifyContent: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: theme.spacing.unit,
     '& :last-child': {
       marginRight: theme.spacing.unit
     }
+  },
+  notificationMetaHeader: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * .5
+  },
+  notifcationMainHeader: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingTop: 0,
+    paddingRight: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
   },
   smallIcon: {
     width: 15,
@@ -168,9 +179,25 @@ class Notification extends React.Component {
           elevation={elevation}
         >
           <CardHeader
-            className={classes.cardHeader}
+            className={classNames(classes.cardHeader, classes.notificationMetaHeader)}
             title={
-              <span className={classes.rightHeaderSection}>
+              <span className={classes.notificationAppTitle}>
+                {!hideCloseButton && (
+                  <IconButton
+                    className={classes.smallIconButton}
+                    onClick={this.onCloseNotification}
+                    disableRipple
+                  >
+                    <CloseIcon className={classes.smallIcon} />
+                  </IconButton>
+                )}
+                <Typography
+                  type="body1"
+                  component="span"
+                  classes={{ body1: classes.timestampFont }}
+                >
+                  {timestamp ? timestamp : moment().format('h:mm A')}
+                </Typography>
                 {expandContent ? (
                   <IconButton
                     className={classes.smallIconButton}
@@ -186,27 +213,11 @@ class Notification extends React.Component {
                 ) : (
                   <span />
                 )}
-                <Typography
-                  type="body1"
-                  component="span"
-                  classes={{ body1: classes.timestampFont }}
-                >
-                  {timestamp ? timestamp : moment().format('h:mm A')}
-                </Typography>
-                {!hideCloseButton && (
-                  <IconButton
-                    className={classes.smallIconButton}
-                    onClick={this.onCloseNotification}
-                    disableRipple
-                  >
-                    <CloseIcon className={classes.smallIcon} />
-                  </IconButton>
-                )}
               </span>
             }
           />
           <CardHeader
-            className={classes.cardHeader}
+            className={classNames(classes.cardHeader, classes.notifcationMainHeader)}
             avatar={avatar}
             title={
               <Typography
