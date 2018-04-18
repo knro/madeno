@@ -18,15 +18,12 @@ const styles = theme => ({
     zIndex: theme.zIndex.snackbar,
     overflow: 'hidden'
   },
-  boxShadow: {
-    boxShadow: '0 2px 4px rgba(0,0,0,.16), 0 2px 4px rgba(0,0,0,.23)'
-  },
   card: {},
   cardHeader: {
-    paddingLeft: theme.spacing.unit,
-    paddingTop: theme.spacing.unit,
+    paddingLeft: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit
+    paddingBottom: theme.spacing.unit * 2
   },
   cardContent: {
     padding: theme.spacing.unit
@@ -41,8 +38,8 @@ const styles = theme => ({
     height: 24
   },
   cardActions: {
+    padding: '8px 4px',
     margin: 0,
-    padding: 0,
     display: 'flex',
     justifyContent: 'flex-start',
     background: '#eee',
@@ -149,13 +146,12 @@ class Notification extends React.Component {
   render() {
     const {
       classes,
-      raised,
+      elevation,
       avatar,
       title,
       subheader,
       content,
       action,
-      disableTimestamp,
       timestamp,
       open,
       hideCloseButton,
@@ -163,54 +159,52 @@ class Notification extends React.Component {
     } = this.props;
 
     return (
-      <Slide className={classes.boxShadow} direction="up" in={open}>
+      <Slide direction="up" in={open}>
         <Card
           className={classNames(classes.root, classes.card)}
-          raised={raised}
+          elevation={2}
         >
-          <CardHeader
-            className={classes.cardHeader}
-            avatar={avatar}
-            action={
-              <span className={classes.rightHeaderSection}>
-                {expandContent ? (
-                  <IconButton
-                    className={classes.smallIconButton}
-                    onClick={this.handleExpandContent}
-                    disableRipple
-                  >
-                    <ExpandMore
-                      className={classNames(classes.expand, classes.smallIcon, {
-                        [classes.expandOpen]: this.state.expanded
-                      })}
-                    />
-                  </IconButton>
-                ) : (
-                  <span />
-                )}
-                {disableTimestamp ? (
-                  <span />
-                ) : (
-                  <Typography
-                    type="body1"
-                    component="span"
-                    classes={{ body1: classes.timestampFont }}
-                  >
-                    {timestamp ? timestamp : moment().format('h:mm A')}
-                  </Typography>
-                )}
-                {!hideCloseButton && (
-                  <IconButton
-                    className={classes.smallIconButton}
-                    onClick={this.onCloseNotification}
-                    disableRipple
-                  >
-                    <CloseIcon className={classes.smallIcon} />
-                  </IconButton>
-                )}
-              </span>
-            }
-            title={
+          <CardContent className={classes.cardHeader}>
+            <div>
+              {expandContent ? (
+                <IconButton
+                  className={classes.smallIconButton}
+                  onClick={this.handleExpandContent}
+                  disableRipple
+                >
+                  {appTitle}
+                  &middot;
+                  {timestamp ? timestamp : moment().format('h:mm A')}
+
+                  <ExpandMore
+                    className={classNames(classes.expand, classes.smallIcon, {
+                      [classes.expandOpen]: this.state.expanded
+                    })}
+                  />
+                </IconButton>
+              ) : (
+                <Typography
+                  type="body1"
+                  component="span"
+                  classes={{ body1: classes.timestampFont }}
+                >
+                  {appTitle}
+                  &middot;
+                  {timestamp ? timestamp : moment().format('h:mm A')}
+                </Typography>
+              )}
+              {!hideCloseButton && (
+                <IconButton
+                  className={classes.smallIconButton}
+                  onClick={this.onCloseNotification}
+                  disableRipple
+                >
+                  <CloseIcon className={classes.smallIcon} />
+                </IconButton>
+              )}
+            </div>
+            {avatar && ( {avatar} )}
+            {title && (
               <Typography
                 type={avatar ? 'body2' : 'headline'}
                 component="span"
@@ -221,8 +215,8 @@ class Notification extends React.Component {
               >
                 {title}
               </Typography>
-            }
-            subheader={
+            )}
+            {subheader && (
               <Typography
                 type={'body1'}
                 component="span"
@@ -230,8 +224,8 @@ class Notification extends React.Component {
               >
                 {subheader}
               </Typography>
-            }
-          />
+            )}
+          </CardContent>
           {content && (
             <CardContent className={classes.cardContent}>
               <Typography type="body1" component="span">
@@ -266,14 +260,14 @@ class Notification extends React.Component {
 Notification.displayName = 'Notification';
 Notification.propTypes = {
   classes: PropTypes.any.isRequired,
-  raised: PropTypes.bool,
+  appTitle: PropTypes.string,
+  elevation: PropTypes.number,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   subheader: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   avatar: PropTypes.node,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   action: PropTypes.node,
   timeout: PropTypes.number,
-  disableTimestamp: PropTypes.bool,
   timestamp: PropTypes.string,
   onCloseNotification: PropTypes.func.isRequired,
   onNotificationTimeout: PropTypes.func,
@@ -284,8 +278,7 @@ Notification.propTypes = {
   expandContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };
 Notification.defaultProps = {
-  raised: true,
-  disableTimestamp: false,
+  elevation: 2,
   open: false,
   hideCloseButton: false,
   priority: false
