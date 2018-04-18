@@ -74,7 +74,11 @@ const styles = theme => ({
     backgroundColor: red[500]
   },
   button: {
-    margin: theme.spacing.unit
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
+    '&:first-child': {
+      marginLeft: theme.spacing.unit
+    }
   },
   rightIcon: {
     marginLeft: theme.spacing.unit
