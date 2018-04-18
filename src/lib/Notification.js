@@ -146,6 +146,7 @@ class Notification extends React.Component {
   render() {
     const {
       classes,
+      appTitle,
       elevation,
       avatar,
       title,
