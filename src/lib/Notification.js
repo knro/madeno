@@ -204,7 +204,11 @@ class Notification extends React.Component {
                 </IconButton>
               )}
             </div>
-            {avatar && ( {avatar} )}
+            {avatar && ( 
+              <div>
+                {avatar}
+              </div>
+            )}
             {title && (
               <Typography
                 type={avatar ? 'body2' : 'headline'}
