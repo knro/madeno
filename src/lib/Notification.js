@@ -18,6 +18,9 @@ const styles = theme => ({
     zIndex: theme.zIndex.snackbar,
     overflow: 'hidden'
   },
+  boxShadow: {
+    boxShadow: '0 2px 4px rgba(0,0,0,.16), 0 2px 4px rgba(0,0,0,.23)'
+  },
   card: {},
   cardHeader: {
     paddingLeft: theme.spacing.unit * 2,
@@ -146,7 +149,6 @@ class Notification extends React.Component {
   render() {
     const {
       classes,
-      appTitle,
       elevation,
       avatar,
       title,
@@ -160,56 +162,53 @@ class Notification extends React.Component {
     } = this.props;
 
     return (
-      <Slide direction="up" in={open}>
+      <Slide className={classes.boxShadow} direction="up" in={open}>
         <Card
           className={classNames(classes.root, classes.card)}
-          elevation={2}
+          elevation={elevation}
         >
-          <CardContent className={classes.cardHeader}>
-            <div>
-              {expandContent ? (
-                <IconButton
-                  className={classes.smallIconButton}
-                  onClick={this.handleExpandContent}
-                  disableRipple
-                >
-                  {appTitle}
-                  &middot;
-                  {timestamp ? timestamp : moment().format('h:mm A')}
-
-                  <ExpandMore
-                    className={classNames(classes.expand, classes.smallIcon, {
-                      [classes.expandOpen]: this.state.expanded
-                    })}
-                  />
-                </IconButton>
-              ) : (
+          <CardHeader
+            className={classes.cardHeader}
+            title={
+              <span className={classes.rightHeaderSection}>
+                {expandContent ? (
+                  <IconButton
+                    className={classes.smallIconButton}
+                    onClick={this.handleExpandContent}
+                    disableRipple
+                  >
+                    <ExpandMore
+                      className={classNames(classes.expand, classes.smallIcon, {
+                        [classes.expandOpen]: this.state.expanded
+                      })}
+                    />
+                  </IconButton>
+                ) : (
+                  <span />
+                )}
                 <Typography
                   type="body1"
                   component="span"
                   classes={{ body1: classes.timestampFont }}
                 >
-                  {appTitle}
-                  &middot;
                   {timestamp ? timestamp : moment().format('h:mm A')}
                 </Typography>
-              )}
-              {!hideCloseButton && (
-                <IconButton
-                  className={classes.smallIconButton}
-                  onClick={this.onCloseNotification}
-                  disableRipple
-                >
-                  <CloseIcon className={classes.smallIcon} />
-                </IconButton>
-              )}
-            </div>
-            {avatar && ( 
-              <div>
-                {avatar}
-              </div>
-            )}
-            {title && (
+                {!hideCloseButton && (
+                  <IconButton
+                    className={classes.smallIconButton}
+                    onClick={this.onCloseNotification}
+                    disableRipple
+                  >
+                    <CloseIcon className={classes.smallIcon} />
+                  </IconButton>
+                )}
+              </span>
+            }
+          />
+          <CardHeader
+            className={classes.cardHeader}
+            avatar={avatar}
+            title={
               <Typography
                 type={avatar ? 'body2' : 'headline'}
                 component="span"
@@ -220,8 +219,8 @@ class Notification extends React.Component {
               >
                 {title}
               </Typography>
-            )}
-            {subheader && (
+            }
+            subheader={
               <Typography
                 type={'body1'}
                 component="span"
@@ -229,8 +228,8 @@ class Notification extends React.Component {
               >
                 {subheader}
               </Typography>
-            )}
-          </CardContent>
+            }
+          />
           {content && (
             <CardContent className={classes.cardContent}>
               <Typography type="body1" component="span">
@@ -284,6 +283,7 @@ Notification.propTypes = {
 };
 Notification.defaultProps = {
   elevation: 2,
+  appTitle: 'Notification',
   open: false,
   hideCloseButton: false,
   priority: false
