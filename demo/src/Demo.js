@@ -73,13 +73,6 @@ const styles = theme => ({
   avatarError: {
     backgroundColor: red[500]
   },
-  button: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
-    '&:first-child': {
-      marginLeft: theme.spacing.unit
-    }
-  },
   rightIcon: {
     marginLeft: theme.spacing.unit
   },
@@ -190,7 +183,7 @@ class Demo extends Component {
             <IconButton
               color="inherit"
               component="a"
-              href="https://github.com/hendratommy/mui-notifications"
+              href="https://github.com/studio384/madeno"
               className={classes.iconButton}
             >
               <Github className={classes.icon} />
