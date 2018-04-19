@@ -42,7 +42,7 @@ const styles = theme => ({
     height: 24
   },
   cardActions: {
-    padding: 0,
+    padding: theme.spacing.unit,
     margin: 0,
     display: 'flex',
     justifyContent: 'flex-start',
