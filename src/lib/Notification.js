@@ -18,7 +18,8 @@ const styles = theme => ({
     zIndex: theme.zIndex.snackbar,
     overflow: 'hidden'
   },
-  boxShadow: {
+  notification: {
+    marginTop: theme.spacing.unit * 2,
     boxShadow: '0 2px 4px rgba(0,0,0,.16), 0 2px 4px rgba(0,0,0,.23)'
   },
   card: {},
@@ -173,7 +174,7 @@ class Notification extends React.Component {
     } = this.props;
 
     return (
-      <Slide className={classes.boxShadow} direction="up" in={open}>
+      <Slide className={classes.notification} direction="up" in={open}>
         <Card
           className={classNames(classes.root, classes.card)}
           elevation={elevation}
