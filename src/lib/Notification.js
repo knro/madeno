@@ -60,9 +60,6 @@ const styles = theme => ({
     justifyContent: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
-    '& :last-child': {
-      marginRight: theme.spacing.unit
-    }
   },
   notificationMetaHeader: {
     paddingLeft: theme.spacing.unit * 2,
@@ -83,7 +80,7 @@ const styles = theme => ({
   smallIconButton: {
     width: 20,
     height: 20,
-    marginLeft: theme.spacing.unit
+    marginRight: theme.spacing.unit
   },
   appTitle: {
     fontSize: '10pt',
