@@ -177,7 +177,7 @@ class Demo extends Component {
               className={classes.headerText}
               noWrap
             >
-              mui-notifications
+              Madeno
             </Typography>
             <div className={classes.spacer} />
             <IconButton
@@ -199,6 +199,8 @@ class Demo extends Component {
               <Notification
                 title="Title"
                 subheader="Some message"
+                accent="#2196f3"
+                appTitle="Madeno"
                 avatar={
                   <Avatar>
                     <Message />

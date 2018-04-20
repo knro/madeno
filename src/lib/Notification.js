@@ -85,8 +85,12 @@ const styles = theme => ({
     height: 20,
     marginLeft: theme.spacing.unit
   },
+  appTitle: {
+    fontSize: '10pt',
+    fontWeight: 600
+  },
   timestampFont: {
-    fontSize: '9pt',
+    fontSize: '10pt',
     color: theme.palette.text.secondary,
     textAlign: 'left'
   },
@@ -170,7 +174,9 @@ class Notification extends React.Component {
       timestamp,
       open,
       hideCloseButton,
-      expandContent
+      expandContent,
+      accent,
+      appTitle
     } = this.props;
 
     return (
@@ -195,9 +201,17 @@ class Notification extends React.Component {
                 <Typography
                   type="body1"
                   component="span"
+                  style={{color: accent}}
+                  classes={{ body1: classes.appTitle }}
+                >
+                  {appTitle}
+                </Typography>
+                <Typography
+                  type="body1"
+                  component="span"
                   classes={{ body1: classes.timestampFont }}
                 >
-                  {timestamp ? timestamp : moment().format('h:mm A')}
+                  &nbsp;&middot;&nbsp;{timestamp ? timestamp : moment().format('h:mm A')}
                 </Typography>
                 {expandContent ? (
                   <IconButton
@@ -277,6 +291,7 @@ Notification.displayName = 'Notification';
 Notification.propTypes = {
   classes: PropTypes.any.isRequired,
   appTitle: PropTypes.string,
+  accent: PropTypes.string,
   elevation: PropTypes.number,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   subheader: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -298,7 +313,8 @@ Notification.defaultProps = {
   appTitle: 'Notification',
   open: false,
   hideCloseButton: false,
-  priority: false
+  priority: false,
+  accent: '#8bc34a'
 };
 
 export default withStyles(styles)(Notification);
