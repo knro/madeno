@@ -8,8 +8,8 @@ import Slide from 'material-ui/transitions/Slide';
 import Typography from 'material-ui/Typography';
 import CloseIcon from 'material-ui-icons/Close';
 import ExpandMore from 'material-ui-icons/ExpandMore';
-import moment from 'moment';
 import classNames from 'classnames';
+import format from 'date-fns/format';
 
 const styles = theme => ({
   root: {
@@ -59,7 +59,7 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   notificationMetaHeader: {
     paddingLeft: theme.spacing.unit * 2,
@@ -122,6 +122,8 @@ const styles = theme => ({
     transform: 'rotate(180deg)'
   }
 });
+
+let date = new Date();
 
 class Notification extends React.Component {
   constructor(props) {
@@ -208,7 +210,7 @@ class Notification extends React.Component {
                   component="span"
                   classes={{ body1: classes.timestampFont }}
                 >
-                  &nbsp;&middot;&nbsp;{timestamp ? timestamp : moment().format('h:mm A')}
+                  &nbsp;&middot;&nbsp;{timestamp ? timestamp : format(date, 'H:mm')}
                 </Typography>
                 {expandContent ? (
                   <IconButton

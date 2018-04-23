@@ -11,7 +11,7 @@ import Grid from 'material-ui/Grid';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography/Typography';
-import moment from 'moment';
+import format from 'date-fns';
 import IconButton from 'material-ui/IconButton';
 import Paper from 'material-ui/Paper';
 import { grey, green, yellow, red } from 'material-ui/colors';
@@ -237,7 +237,7 @@ class Demo extends Component {
               <Notification
                 title="Title"
                 subheader="With custom timestamp"
-                timestamp={moment().format('HH:mm:ss')}
+                timestamp={format('HH:mm:ss')}
                 open={true}
                 onCloseNotification={() => {
                   return;
@@ -294,7 +294,7 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                timestamp={moment().format('HH:mm:ss')}
+                timestamp={format('HH:mm:ss')}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
@@ -355,7 +355,7 @@ class Demo extends Component {
                   return;
                 }}
                 expandContent="Expanded content"
-                timestamp={moment().format('HH:mm:ss')}
+                timestamp={format('HH:mm:ss')}
               />
             </Grid>
 
