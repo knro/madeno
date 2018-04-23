@@ -11,7 +11,7 @@ import Grid from 'material-ui/Grid';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography/Typography';
-import format from 'date-fns';
+import format from 'date-fns/format';
 import IconButton from 'material-ui/IconButton';
 import Paper from 'material-ui/Paper';
 import { grey, green, yellow, red } from 'material-ui/colors';
