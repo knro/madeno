@@ -1,6 +1,6 @@
 {
   "name": "mademo",
-  "version": "0.3.0-beta.2",
+  "version": "0.3.0-beta.3",
   "private": true,
   "license": "MIT",
   "keywords": [
@@ -12,7 +12,7 @@
     "classnames": "^2.2.5",
     "date-fns": "^1.29.0",
     "jss-expand": "^5.1.0",
-    "madeno": "^0.3.0-beta.2",
+    "madeno": "^0.3.0-beta.3",
     "material-ui": "^1.0.0-beta.43",
     "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.20.1",
