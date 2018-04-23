@@ -167,6 +167,8 @@ class Demo extends Component {
 
   render() {
     const { classes } = this.props;
+    let date = new Date();
+
     return (
       <div className={classNames(classes.root, classes.content)}>
         <AppBar color="primary">
@@ -237,7 +239,7 @@ class Demo extends Component {
               <Notification
                 title="Title"
                 subheader="With custom timestamp"
-                timestamp={format('HH:mm:ss')}
+                timestamp={format(date, 'HH:mm:ss')}
                 open={true}
                 onCloseNotification={() => {
                   return;
@@ -294,7 +296,7 @@ class Demo extends Component {
                 onCloseNotification={() => {
                   return;
                 }}
-                timestamp={format('HH:mm:ss')}
+                timestamp={format(date, 'HH:mm:ss')}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
@@ -355,7 +357,7 @@ class Demo extends Component {
                   return;
                 }}
                 expandContent="Expanded content"
-                timestamp={format('HH:mm:ss')}
+                timestamp={format(date, 'HH:mm:ss')}
               />
             </Grid>
 

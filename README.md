@@ -14,6 +14,7 @@ Install and run the demo to see how Madeno looks. Spoiler alert: it looks nice.
 ## Changelog
 ### Madeno 0.3 beta 4
 * We added this changelog, yay
+* Fixes missing ```date``` parameter for ```date-fns``` in demo
 
 ### Madeno 0.3 beta 3
 * Remove misplaced ```moment``` package
