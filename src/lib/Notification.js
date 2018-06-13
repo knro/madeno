@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
-import {Card, CardHeader, CardContent, CardActions } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
@@ -49,7 +52,6 @@ class Notification extends React.Component {
 
   render() {
     const {
-      classes,
       elevation,
       avatar,
       title,
@@ -123,7 +125,6 @@ class Notification extends React.Component {
               <Typography
                 type={'body1'}
                 component="span"
-                className={classes.subheaderText}
               >
                 {subheader}
               </Typography>
@@ -160,7 +161,6 @@ class Notification extends React.Component {
 }
 Notification.displayName = 'Notification';
 Notification.propTypes = {
-  classes: PropTypes.any.isRequired,
   appTitle: PropTypes.string,
   accent: PropTypes.string,
   elevation: PropTypes.number,
