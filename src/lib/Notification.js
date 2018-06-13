@@ -317,5 +317,4 @@ Notification.defaultProps = {
   accent: '#8bc34a'
 };
 
-//export default withStyles(styles)(Notification);
-export default Notification;
+export default withStyles(styles)(Notification);
