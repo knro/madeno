@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import IconButton from 'material-ui/IconButton';
-import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
-import Collapse from 'material-ui/transitions/Collapse';
-import Slide from 'material-ui/transitions/Slide';
-import Typography from 'material-ui/Typography';
-import CloseIcon from 'material-ui-icons/Close';
-import ExpandMore from 'material-ui-icons/ExpandMore';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import Card, { CardHeader, CardContent, CardActions } from '@material-ui/core';
+import Collapse from '@material-ui/core/Collapse';
+import Slide from '@material-ui/core/Slide';
+import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import classNames from 'classnames';
 import format from 'date-fns/format';
 

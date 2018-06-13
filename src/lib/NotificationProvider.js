@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import immutable from 'immutable';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { Provider } from 'react-redux';
