@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
-import Card, { CardHeader, CardContent, CardActions } from '@material-ui/core';
+import {Card, CardHeader, CardContent, CardActions } from '@material-ui/core';
 import Collapse from '@material-ui/core/Collapse';
 import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
